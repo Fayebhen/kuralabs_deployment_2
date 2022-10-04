@@ -34,6 +34,11 @@ stage ('Deploy') {
       }
     }
   }
+  post {
+        always {
+            emailext body: 'Notification Email', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Deployed'
+        }
+    }
 }   
   
  
