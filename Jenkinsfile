@@ -36,7 +36,7 @@ stage ('Deploy') {
   }
   post {
         always {
-            emailext body: 'Notification Email', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Deployed'
+            emailext attachLog: true, body: 'this is a deployment stage test', subject: 'Test email', to: 'fbhenry08@gmail.com'
         }
     }
 }   
